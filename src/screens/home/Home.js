@@ -1,7 +1,7 @@
 import React , {Component} from 'react';
 import ReactDOM from 'react-dom';
 import './home.css';
-import Details from '../details/Details';
+import Details from '../../screens/details/Details';
 import Header from '../../common/header/Header';
 import { withStyles } from '@material-ui/core/styles';
 import moviesData from '../../common/movieData';
@@ -50,11 +50,7 @@ import Button from '@material-ui/core/Button';
      },
      title: {
         color: theme.palette.primary.light,
-     },
-     movieClickHandler = (movieId) => {
-        ReactDOM.render(<Details movieId={movieId} />, document.getElementById('root'));
-    }
-     
+     }     
 
 });
 
@@ -82,7 +78,9 @@ class Home extends Component{
     artistSelectHandler = event => {
         this.setState({ artists: event.target.value });
     }
-
+    movieClickHandler = (movieId) => {
+        ReactDOM.render(<Details movieId={movieId} />, document.getElementById('root'));
+    }
     render(){
         const { classes } = this.props;
         return(
